@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoRecetasDeCocinas.Views.CategoriaView"
+             Title="CategoriaView" BackgroundImageSource="fondocategorias.avif"
+             Shell.NavBarIsVisible="False">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label HorizontalTextAlignment="Center" FontFamily="TimesNewRoman" Margin="0,180,0,40" Text="Eliga una categoria:" Grid.Row="0" FontSize="20"></Label>
+        <HorizontalStackLayout Grid.Row="1"  HorizontalOptions="Center" Margin="40">
+            <Button Command="{Binding SeleccionarCategoriaCommand}" CommandParameter="Almuerzos" Margin="10" Text="Almuerzos" FontFamily="garamond" HeightRequest="40" WidthRequest="90" TextColor="Orange" BackgroundColor="#634033" ></Button>
+            <Button Command="{Binding SeleccionarCategoriaCommand}" CommandParameter="Comidas" Margin="10" Text="Comidas"  FontFamily="garamond" HeightRequest="40" WidthRequest="90" TextColor="Orange" BackgroundColor="#634033"></Button>
+        </HorizontalStackLayout >
+        <HorizontalStackLayout Grid.Row="2" HorizontalOptions="Center" Margin="40" >
+            <Button Command="{Binding SeleccionarCategoriaCommand}" CommandParameter="Cenas" Margin="10" Text="Cenas" FontFamily="garamond" HeightRequest="40" WidthRequest="90" TextColor="Orange" BackgroundColor="#634033" ></Button>
+            <Button Command="{Binding SeleccionarCategoriaCommand}" CommandParameter="Postres" Margin="10" Text="Postres" FontFamily="garamond" HeightRequest="40" WidthRequest="90" TextColor="Orange" BackgroundColor="#634033"></Button>
+        </HorizontalStackLayout>
+    </Grid>
+</ContentPage>

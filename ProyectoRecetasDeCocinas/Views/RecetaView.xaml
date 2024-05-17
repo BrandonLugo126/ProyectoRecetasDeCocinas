@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoRecetasDeCocinas.Views.RecetaView"
+             Title="RecetaView"
+             BackgroundColor="SaddleBrown" Shell.NavBarIsVisible="False">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="3*"></RowDefinition>
+            <RowDefinition Height="4*"></RowDefinition>
+            <RowDefinition Height=".5*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Text="{Binding Receta.Nombre}" TextColor="Orange" FontFamily="TimesNewRoman" FontSize="Title"></Label>
+        <Image Grid.Row="1" Source="{Binding Receta.Imagen}" Margin="3"></Image>
+        <Border Grid.Row="2" Stroke="White" StrokeThickness="2">
+        <Label  Text="{Binding Receta.Procedimiento}"  BackgroundColor="SandyBrown"></Label>
+        </Border>
+        <Entry IsReadOnly="True" Grid.Row="3" BackgroundColor="SandyBrown" Text="{Binding Receta.Video}"></Entry>
+        <ImageButton Command="{Binding RegresarAListasCommand}" Grid.Row="4" HorizontalOptions="Start" Source="regresar.png" Background="Transparent" ></ImageButton>
+    </Grid>
+</ContentPage>

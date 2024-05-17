@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="ProyectoRecetasDeCocinas.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:ProyectoRecetasDeCocinas"
+    Shell.FlyoutBehavior="Disabled" xmlns:views="clr-namespace:ProyectoRecetasDeCocinas.Views"
+    Title="ProyectoRecetasDeCocinas" xmlns:viewmodel="clr-namespace:ProyectoRecetasDeCocinas.ViewModels">
+    <Shell.BindingContext>
+        <viewmodel:RecetarioViewModel></viewmodel:RecetarioViewModel>
+    </Shell.BindingContext>
+    <ShellContent
+        Title="Inicio"
+        ContentTemplate="{DataTemplate views:InicioView}"
+        Route="Inicio" />
+    <ShellContent
+        Title="Inicio"
+        ContentTemplate="{DataTemplate views:CategoriaView}"
+        Route="Categorias" />
+    <ShellContent
+        Title="Inicio"
+        ContentTemplate="{DataTemplate views:ListaView}"
+        Route="Listas" />
+    <ShellContent
+        Title="Inicio"
+        ContentTemplate="{DataTemplate views:AgregarEditarView}"
+        Route="Agregar" />
+    <ShellContent
+        Title="Inicio"
+        ContentTemplate="{DataTemplate views:RecetaView}"
+        Route="Receta" />
+    <ShellContent
+        Title="Inicio"
+        ContentTemplate="{DataTemplate views:EditarView}"
+        Route="Editar" />
+    <ShellContent
+        Title="Inicio"
+        ContentTemplate="{DataTemplate views:Eliminar_view}"
+        Route="Eliminar" />
+
+</Shell>

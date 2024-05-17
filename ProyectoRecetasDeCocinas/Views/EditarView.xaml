@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoRecetasDeCocinas.Views.EditarView"
+             Title="EditarView"
+              BackgroundColor="SaddleBrown" Shell.NavBarIsVisible="False">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="8*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <VerticalStackLayout Grid.Row="0">
+            <Label TextColor="Orange">Nombre de la receta:</Label>
+            <Entry BackgroundColor="SandyBrown" Text="{Binding Receta.Nombre}"></Entry>
+
+            <Label TextColor="Orange">URL de la imagen:</Label>
+            <Entry BackgroundColor="SandyBrown" Text="{Binding Receta.Imagen}"></Entry>
+
+            <Label TextColor="Orange">URL de video demostrativo(opcional):</Label>
+            <Entry BackgroundColor="SandyBrown"  Text="{Binding Receta.Video}"></Entry>
+
+            <Label TextColor="Orange">Categoria:</Label>
+            <Picker BackgroundColor="SandyBrown" ItemsSource="{Binding ListaCategorias}" SelectedItem="{Binding Receta.Categoria}"></Picker>
+
+            <Label TextColor="Orange">Procedimiento:</Label>
+            <ScrollView>
+                <Editor FlowDirection="MatchParent" BackgroundColor="SandyBrown"  Text="{Binding Receta.Procedimiento}"></Editor>
+            </ScrollView>
+        </VerticalStackLayout>
+        <Label Grid.Row="1" TextColor="red" Text="{Binding Error}" HorizontalOptions="Center" Margin="5" FontSize="Small"></Label>
+
+        <ImageButton Command="{Binding EditarCommand}" Margin="300,0,0,0" Grid.Row="2" HorizontalOptions="End" Source="signomas.png" Background="Transparent"></ImageButton>
+        <ImageButton Command="{Binding RegresarAListasCommand}" Margin="0,0,300,0" Grid.Row="2" HorizontalOptions="Start" Source="regresar.png" Background="Transparent" ></ImageButton>
+    </Grid>
+</ContentPage>

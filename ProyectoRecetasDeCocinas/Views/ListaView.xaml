@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoRecetasDeCocinas.Views.ListaView"
+             Title="ListaView" x:Name="ListaVer"
+             BackgroundColor="SaddleBrown" Shell.NavBarIsVisible="False">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height=".8*"></RowDefinition>
+            <RowDefinition Height=".1*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Text="Eliga la receta:" FontFamily="TimesNewRoman" FontSize="Title"></Label>
+        <Border Grid.Row="1" Stroke="White" StrokeThickness="2.5" BackgroundColor="SandyBrown">
+            <CollectionView Margin="5" Grid.Row="1" ItemsSource="{Binding ListaMostrar}" SelectionMode="Single" SelectedItem="{Binding Receta}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <SwipeView>
+                            <SwipeView.RightItems>
+                                <SwipeItem Text="Ver" BackgroundColor="Brown" Command="{Binding Source={x:Reference ListaVer}, Path=BindingContext.VerRecetaCommand}" CommandParameter="{Binding .}"></SwipeItem>
+                                <SwipeItem Text="Editar" BackgroundColor="Brown" Command="{Binding Source={x:Reference ListaVer}, Path=BindingContext.VerEditarCommand}" CommandParameter="{Binding .}"></SwipeItem>
+                                <SwipeItem Text="Eliminar" BackgroundColor="Brown" Command="{Binding Source={x:Reference ListaVer}, Path=BindingContext.VerEliminarCommand}" CommandParameter="{Binding .}"></SwipeItem>
+                            </SwipeView.RightItems>
+                            <VerticalStackLayout Background="Transparent">
+                                <Border Stroke="Brown" StrokeThickness="2" Margin="2">
+                                    <Grid MaximumHeightRequest="250">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="3*"></RowDefinition>
+                                            <RowDefinition Height="7*"></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition></ColumnDefinition>
+                                            <ColumnDefinition></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Grid.Column="0" Grid.Row="0" HorizontalOptions="Start" FontSize="Title" Text="Receta:" FontFamily="garamond"></Label>
+                                        <Label Margin="2,18,0,0" Grid.Column="0" Grid.Row="1" HorizontalOptions="Start" FontSize="Title" Text="{Binding Nombre}" FontFamily="garamond"></Label>
+                                        <Image  HeightRequest="90" Aspect="AspectFill" Grid.Column="1" Grid.RowSpan="2" Margin="5,6,5,5"  Source="{Binding Imagen}" ></Image>
+                                    </Grid>
+                                </Border>
+                            </VerticalStackLayout>
+                        </SwipeView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Border>
+        <ImageButton Command="{Binding VerAgregarCommand}" Margin="300,0,0,0" Grid.Row="2"  HorizontalOptions="End" Source="signomas.png" Background="Transparent"></ImageButton>
+        <ImageButton Command="{Binding VerCategoriasCommand}" Margin="0,0,300,0" Grid.Row="2"  HorizontalOptions="Start" Source="regresar.png" Background="Transparent" ></ImageButton>
+    </Grid>
+</ContentPage>
